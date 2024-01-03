@@ -1,0 +1,73 @@
+﻿ --Câu 1 Đếm số lượng vận động viên tham gia của từng giải đấu
+ SELECT NON EMPTY { [Measures].[Fact Count] } ON COLUMNS, 
+	NON EMPTY { ([Dim Host].[Game Name].[Game Name].ALLMEMBERS ) } ON ROWS 
+ FROM [WH OLYMPIC] 
+
+  -- Câu 2 Đếm số lượng vận động viên tham gia ở từng quốc gia.
+ SELECT NON EMPTY { [Measures].[Fact Count] } ON COLUMNS, 
+ NON EMPTY { ([Dim Location].[Game Location].[Game Location].ALLMEMBERS ) } 
+	ON ROWS 
+ FROM [WH OLYMPIC] 
+
+ -- Câu 3 Đếm số môn thi đấu theo từng quốc gia tổ chức Olympic
+  SELECT NON EMPTY { [Measures].[Game Id Distinct Count] } ON COLUMNS, 
+  NON EMPTY { ([Dim Location].[Game Location].[Game Location].ALLMEMBERS ) } 
+	 ON ROWS 
+	FROM [WH OLYMPIC] 
+
+ -- Câu 4 Đếm số môn thi đấu của từng giải đấu
+ SELECT NON EMPTY { [Measures].[Game Id Distinct Count] } ON COLUMNS, 
+ NON EMPTY { ([Dim Host].[Game Name].[Game Name].ALLMEMBERS ) } 
+ ON ROWS
+ FROM [WH OLYMPIC] 
+
+  -- Câu 5 Cho biết số lượng vận động viên tham gia vào từng môn thi đấu trong thế vận hội năm 2022. 
+SELECT NON EMPTY { [Measures].[Fact Count] } ON COLUMNS, 
+NON EMPTY { ([Dim Host].[Game Name].[Game Name].ALLMEMBERS * [Dim Game].[Discipline Title].[Discipline Title].ALLMEMBERS ) } 
+ON ROWS 
+FROM ( SELECT ( { [Dim Time].[Game Year].&[2022] } ) ON COLUMNS 
+FROM [WH OLYMPIC]) 
+WHERE ( [Dim Time].[Game Year].&[2022] )
+
+ -- Câu 6 Liệt kê số lượng huy chương vàng của từng quốc gia trong thế vận hội năm 2020
+SELECT NON EMPTY { [Measures].[Medal Type Count] } ON COLUMNS,
+NON EMPTY { ([Dim Country].[Country Name].[Country Name].ALLMEMBERS * [Fact].[Medal Type].[Medal Type].ALLMEMBERS ) }  ON ROWS 
+FROM ( SELECT ( { [Dim Time].[Game Year].&[2020] } ) ON COLUMNS FROM ( SELECT ( { [Fact].[Medal Type].&[GOLD] } ) ON COLUMNS 
+FROM [WH OLYMPIC]))
+WHERE ( [Dim Time].[Game Year].&[2020] ) 
+
+ -- Câu 7 Liệt kê 5 quốc gia đạt được số lượng huy chương bạc nhiều nhất năm 2022, sắp xếp theo số lượng giảm dần
+SELECT NON EMPTY { [Measures].[Medal Type Count] } ON COLUMNS, NON EMPTY {
+TOPCOUNT([Dim Country].[Country Name].[Country Name].ALLMEMBERS, 5, [Measures].[Medal Type Count])}  
+ON ROWS FROM ( SELECT ( { [Dim Time].[Game Year].&[2022] } ) ON COLUMNS 
+FROM ( SELECT ( { [Fact].[Medal Type].&[SILVER] } ) ON COLUMNS
+FROM [WH OLYMPIC])) 
+WHERE ( [Fact].[Medal Type].&[SILVER], [Dim Time].[Game Year].&[2022] ) 
+
+-- Câu 8 Top 5 quốc gia đạt được nhiều huy chương vàng nhất thế vận hội Beijing 2022
+	SELECT NON EMPTY { [Measures].[Medal Type Count] } ON COLUMNS, NON EMPTY { 
+	TOPCOUNT([Dim Country].[Country Name].[Country Name].ALLMEMBERS, 5, [Measures].[Medal Type Count])
+	} 
+	ON ROWS FROM 
+	( SELECT ( { [Dim Host].[Game Name].&[Beijing 2022] } ) ON COLUMNS
+	FROM 
+	( SELECT ( { [Fact].[Medal Type].&[GOLD] } ) ON COLUMNS FROM [WH OLYMPIC])) 
+	WHERE ( [Fact].[Medal Type].&[GOLD], [Dim Host].[Game Name].&[Beijing 2022] ) 
+
+-- Câu 9 Phân tích số lượng huy chương theo từng quốc gia và năm trong Thế Vận Hội Olympic
+ SELECT NON EMPTY { [Measures].[Medal Type Count] } ON COLUMNS, 
+ NON EMPTY { 
+ ([Dim Country].[Country Name].[Country Name].ALLMEMBERS * [Dim Time].[Game Year].[Game Year].ALLMEMBERS ) 
+ } 
+ ON ROWS 
+ FROM [WH OLYMPIC] 
+
+ -- Câu 10 Phân tích số lượng huy chương theo từng quốc gia đối với từng môn thi đấu
+  SELECT NON EMPTY { [Measures].[Medal Type Count] } ON COLUMNS, 
+  NON EMPTY { ([Dim Country].[Country Name].[Country Name].ALLMEMBERS * [Dim Game].[Discipline Title].[Discipline Title].ALLMEMBERS ) } 
+  DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_UNIQUE_NAME ON ROWS 
+  FROM [WH OLYMPIC] 
+
+
+
+

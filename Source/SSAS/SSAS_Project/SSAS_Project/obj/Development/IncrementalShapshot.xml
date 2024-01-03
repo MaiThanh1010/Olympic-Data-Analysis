@@ -1,0 +1,103 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>SSAS_Project</Database>
+    <Server>localhost</Server>
+    <ConnectionString>Data Source=localhost;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>UekL/bsPLSJJItbWg/cEewh1wfY=5/28/2023 1:38:09 PM5/28/2023 1:38:08 PM</TimeStamp>
+        <ID>
+          <String>WH OLYMPIC</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>d7gCTK/POaa2sh2dylBO7zcm02E=5/28/2023 1:38:22 PM5/28/2023 1:38:21 PM</TimeStamp>
+        <ID>
+          <String>WH OLYMPIC</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>3D4cEoTDD7aOE4xz/79lSeRuIq0=5/28/2023 1:39:16 PM5/28/2023 1:38:34 PM</TimeStamp>
+        <ID>
+          <String>Dim Country</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>lqnApNSadOiGJf6wRV01lRx/gMU=5/28/2023 1:39:16 PM5/28/2023 1:38:34 PM</TimeStamp>
+        <ID>
+          <String>Dim Location</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>D4/lYG9pWaqEU0iCqLqP4y/J3Zg=5/28/2023 1:39:16 PM5/28/2023 1:38:34 PM</TimeStamp>
+        <ID>
+          <String>Dim Host</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>OXZ3Z5VFH5Zf9IBdGq43IPCwSvU=5/28/2023 1:39:16 PM5/28/2023 1:38:34 PM</TimeStamp>
+        <ID>
+          <String>Dim Athlete</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>1ufyaSoj/5QrNng3PfbXPsJ7FRk=5/28/2023 1:39:16 PM5/28/2023 1:38:34 PM</TimeStamp>
+        <ID>
+          <String>Dim Game</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>q1/d/mX281jo72nyw/unifb9x30=5/28/2023 1:39:16 PM5/28/2023 1:38:34 PM</TimeStamp>
+        <ID>
+          <String>Dim Time</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>KjsEUWrayl0hm61KQgXVg4v3ITw=5/28/2023 3:57:04 PM5/28/2023 1:38:34 PM</TimeStamp>
+        <ID>
+          <String>Fact</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>xnsoRYGFypvkrpryXsuKwmEIA6c=5/28/2023 4:20:09 PM5/28/2023 1:38:34 PMWUEK8UsdXLIgW0I738f91HZKaf0=5/28/2023 4:00:18 PM5/28/2023 1:38:34 PM</TimeStamp>
+        <ID>
+          <String>WH OLYMPIC</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>IGWZDbJ1VPazUczqzVamXuHZHOs=5/28/2023 1:34:50 PM5/28/2023 1:34:50 PM</TimeStamp>
+      <ID>
+        <String>SSAS_Project</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2023-05-28T09:20:13.196667Z</LastDeployed>
+</DeploymentSnapshot>
